@@ -100,6 +100,7 @@ interface OutcomeItem {
   bgColor: string;
   textColor: string;
   crescentColor: string;
+  tags: string[];
 }
 
 interface DetailItem {
@@ -109,6 +110,7 @@ interface DetailItem {
   crescentColor: string;
   bgColor: string;
   borderColor: string;
+  subText: string;
 }
 
 export default function App() {
@@ -125,11 +127,51 @@ export default function App() {
 
   // --- STATIC DATA ---
   const workshopDetails: DetailItem[] = [
-    { icon: <AgeIcon />, value: '8–14 Years', label: 'Age Group', crescentColor: 'bg-[#3F634D]/20', bgColor: 'bg-[#D4E0D1]/20', borderColor: 'border-[#3F634D]/10' },
-    { icon: <CalendarIcon />, value: '4 Weeks', label: 'Duration', crescentColor: 'bg-[#5F72BE]/20', bgColor: 'bg-[#C7D2FE]/20', borderColor: 'border-[#5F72BE]/10' },
-    { icon: <LaptopIcon />, value: 'Online', label: 'Mode', crescentColor: 'bg-[#DC7A31]/20', bgColor: 'bg-[#FED7AA]/20', borderColor: 'border-[#DC7A31]/10' },
-    { icon: <RupeeIcon />, value: '₹2,999', label: 'Workshop Fee', crescentColor: 'bg-[#14B8A6]/20', bgColor: 'bg-[#99F6E4]/20', borderColor: 'border-[#14B8A6]/10' },
-    { icon: <RocketIcon />, value: '15 July 2026', label: 'Start Date', crescentColor: 'bg-[#EAB308]/20', bgColor: 'bg-[#FEF08A]/20', borderColor: 'border-[#EAB308]/10' },
+    { 
+      icon: <AgeIcon />, 
+      value: '8–14 Years', 
+      label: 'Age Group', 
+      crescentColor: 'bg-[#3F634D]/20', 
+      bgColor: 'bg-[#D4E0D1]/20', 
+      borderColor: 'border-[#3F634D]/10',
+      subText: 'Kids are grouped into age-appropriate peer batches.'
+    },
+    { 
+      icon: <CalendarIcon />, 
+      value: '4 Weeks', 
+      label: 'Duration', 
+      crescentColor: 'bg-[#5F72BE]/20', 
+      bgColor: 'bg-[#C7D2FE]/20', 
+      borderColor: 'border-[#5F72BE]/10',
+      subText: '2 live sessions per week + 1 interactive project lab.'
+    },
+    { 
+      icon: <LaptopIcon />, 
+      value: 'Online', 
+      label: 'Mode', 
+      crescentColor: 'bg-[#DC7A31]/20', 
+      bgColor: 'bg-[#FED7AA]/20', 
+      borderColor: 'border-[#DC7A31]/10',
+      subText: 'Interactive Zoom classrooms + custom browser sandbox.'
+    },
+    { 
+      icon: <RupeeIcon />, 
+      value: '₹2,999', 
+      label: 'Workshop Fee', 
+      crescentColor: 'bg-[#14B8A6]/20', 
+      bgColor: 'bg-[#99F6E4]/20', 
+      borderColor: 'border-[#14B8A6]/10',
+      subText: 'Flat pricing. Includes certificate & software sandbox access.'
+    },
+    { 
+      icon: <RocketIcon />, 
+      value: '15 July 2026', 
+      label: 'Start Date', 
+      crescentColor: 'bg-[#EAB308]/20', 
+      bgColor: 'bg-[#FEF08A]/20', 
+      borderColor: 'border-[#EAB308]/10',
+      subText: 'Enroll by 10 July to secure early-bird timing slots.'
+    },
   ];
 
   const learningOutcomes: OutcomeItem[] = [
@@ -140,6 +182,7 @@ export default function App() {
       bgColor: 'bg-[#3F634D]',
       textColor: 'text-[#F5F4EB]',
       crescentColor: 'bg-[#537D63]',
+      tags: ['Image Recognition', 'Neural Nets', 'Decision Trees']
     },
     {
       icon: <RobotIcon className="w-6 h-6 text-[#1C221E]" />,
@@ -148,6 +191,7 @@ export default function App() {
       bgColor: 'bg-[#D4E0D1]',
       textColor: 'text-[#1C221E]',
       crescentColor: 'bg-[#A8BCA5]',
+      tags: ['3D Mechanics', 'Simulator Sandbox', 'Block Coding']
     },
     {
       icon: <SignalIcon className="w-6 h-6 text-[#F5F4EB]" />,
@@ -156,6 +200,7 @@ export default function App() {
       bgColor: 'bg-[#5F72BE]',
       textColor: 'text-[#F5F4EB]',
       crescentColor: 'bg-[#7689D4]',
+      tags: ['Ultrasonic radar', 'Line-tracking', 'Obstacle bypass']
     },
     {
       icon: <CodeIcon className="w-6 h-6 text-[#1C221E]" />,
@@ -164,6 +209,7 @@ export default function App() {
       bgColor: 'bg-[#E4E3DA]',
       textColor: 'text-[#1C221E]',
       crescentColor: 'bg-[#C5C4B7]',
+      tags: ['Loops & Lists', 'If/Else conditions', 'Function logic']
     },
     {
       icon: <PuzzleIcon className="w-6 h-6 text-[#F5F4EB]" />,
@@ -172,6 +218,7 @@ export default function App() {
       bgColor: 'bg-[#DC7A31]',
       textColor: 'text-[#F5F4EB]',
       crescentColor: 'bg-[#E39556]',
+      tags: ['Code debugging', 'Logic puzzles', 'Final capstone project']
     },
   ];
 
@@ -379,19 +426,24 @@ export default function App() {
             {workshopDetails.map((detail, idx) => (
               <div
                 key={idx}
-                className={`${detail.bgColor} border ${detail.borderColor} p-6 rounded-[2rem] flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-2`}
+                className={`${detail.bgColor} border ${detail.borderColor} p-6 rounded-[2rem] flex flex-col justify-between items-center text-center transition-transform duration-300 hover:-translate-y-2`}
               >
-                {/* Vector icon with crescent base */}
-                <div className="relative w-16 h-16 flex items-center justify-center mb-4">
-                  {/* Half-circle base */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-8 rounded-b-full ${detail.crescentColor}`}></div>
-                  <span className="relative z-10">{detail.icon}</span>
+                <div className="flex flex-col items-center">
+                  {/* Vector icon with crescent base */}
+                  <div className="relative w-16 h-16 flex items-center justify-center mb-4">
+                    {/* Half-circle base */}
+                    <div className={`absolute bottom-0 left-0 right-0 h-8 rounded-b-full ${detail.crescentColor}`}></div>
+                    <span className="relative z-10">{detail.icon}</span>
+                  </div>
+                  <h3 className="font-outfit font-black text-xl mb-1 text-[#1C221E]">
+                    {detail.value}
+                  </h3>
+                  <p className="text-xs font-bold text-[#3F634D] uppercase tracking-wider mb-3">
+                    {detail.label}
+                  </p>
                 </div>
-                <h3 className="font-outfit font-black text-xl mb-1 text-[#1C221E]">
-                  {detail.value}
-                </h3>
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                  {detail.label}
+                <p className="text-xs text-slate-600 font-bold leading-relaxed border-t border-[#1C221E]/5 pt-3 w-full">
+                  {detail.subText}
                 </p>
               </div>
             ))}
@@ -416,19 +468,37 @@ export default function App() {
             {learningOutcomes.map((item, index) => (
               <div
                 key={index}
-                className={`border border-[#E4E3DA] p-8 rounded-[2.5rem] flex flex-col items-start transition-all duration-300 hover:scale-[1.02] ${item.bgColor} ${item.textColor}`}
+                className={`border border-[#E4E3DA] p-8 rounded-[2.5rem] flex flex-col justify-between items-start transition-all duration-300 hover:scale-[1.02] ${item.bgColor} ${item.textColor}`}
               >
-                <div className="relative w-14 h-14 flex items-center justify-center mb-6">
-                  {/* Flat crescent background block */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-7 rounded-b-full ${item.crescentColor}`}></div>
-                  <span className="relative z-10">{item.icon}</span>
+                <div className="w-full">
+                  <div className="relative w-14 h-14 flex items-center justify-center mb-6">
+                    {/* Flat crescent background block */}
+                    <div className={`absolute bottom-0 left-0 right-0 h-7 rounded-b-full ${item.crescentColor}`}></div>
+                    <span className="relative z-10">{item.icon}</span>
+                  </div>
+                  <h3 className="font-outfit font-black text-2xl mb-3 leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm font-bold opacity-90 leading-relaxed mb-6">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="font-outfit font-black text-2xl mb-3 leading-tight">
-                  {item.title}
-                </h3>
-                <p className="text-sm font-bold opacity-90 leading-relaxed">
-                  {item.description}
-                </p>
+                
+                {/* List of dynamic tags/highlights */}
+                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-current/10 w-full">
+                  {item.tags.map((tag, tIdx) => (
+                    <span 
+                      key={tIdx} 
+                      className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${
+                        item.bgColor.includes('white') || item.bgColor.includes('E4E3DA') || item.bgColor.includes('D4E0D1')
+                          ? 'bg-[#1C221E]/10 text-[#1C221E]' 
+                          : 'bg-[#F5F4EB]/25 text-[#F5F4EB]'
+                      }`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
