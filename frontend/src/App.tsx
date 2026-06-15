@@ -308,16 +308,16 @@ export default function App() {
     <div className="min-h-screen bg-[#F5F4EB] text-[#1C221E] font-nunito select-none selection:bg-[#3F634D]/20 selection:text-[#3F634D]">
       
       {/* 1. NAVBAR */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F5F4EB]/90 backdrop-blur-md border-b border-[#E4E3DA] px-6 py-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F5F4EB]/90 backdrop-blur-md border-b border-[#E4E3DA] px-4 md:px-6 py-3 md:py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
             <div className="flex gap-1">
-              <span className="w-3 h-6 rounded-full bg-[#3F634D]"></span>
-              <span className="w-3 h-6 rounded-full bg-[#DC7A31]"></span>
-              <span className="w-3 h-6 rounded-full bg-[#5F72BE]"></span>
+              <span className="w-2 h-4 sm:w-3 sm:h-6 rounded-full bg-[#3F634D]"></span>
+              <span className="w-2 h-4 sm:w-3 sm:h-6 rounded-full bg-[#DC7A31]"></span>
+              <span className="w-2 h-4 sm:w-3 sm:h-6 rounded-full bg-[#5F72BE]"></span>
             </div>
-            <span className="font-outfit font-black text-2xl tracking-tight text-[#1C221E]">
+            <span className="font-outfit font-black text-xl sm:text-2xl tracking-tight text-[#1C221E]">
               Kidrove
             </span>
           </a>
@@ -333,7 +333,7 @@ export default function App() {
           {/* CTA */}
           <a
             href="#register"
-            className="font-outfit font-bold text-xs uppercase tracking-wider px-6 py-3 bg-[#3F634D] hover:bg-[#324f3d] text-[#F5F4EB] rounded-full transition-all duration-200"
+            className="font-outfit font-bold text-[10px] sm:text-xs uppercase tracking-wider px-4 py-2 sm:px-6 sm:py-3 bg-[#3F634D] hover:bg-[#324f3d] text-[#F5F4EB] rounded-full transition-all duration-200"
           >
             Enroll Now
           </a>
@@ -341,27 +341,27 @@ export default function App() {
       </nav>
 
       {/* 2. HERO SECTION */}
-      <header className="relative pt-32 pb-24 px-6 overflow-hidden">
+      <header className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Text Side */}
-          <div className="lg:col-span-6 text-left">
-            <h1 className="font-outfit font-black text-4xl sm:text-5xl lg:text-6xl text-[#1C221E] leading-[1.1] mb-6 animate-fade-in-up">
+          <div className="lg:col-span-6 text-center lg:text-left">
+            <h1 className="font-outfit font-black text-3xl sm:text-5xl lg:text-6xl text-[#1C221E] leading-[1.1] mb-6 animate-fade-in-up">
               AI & Robotics <br />
               <span className="text-[#3F634D]">Summer Workshop</span>
             </h1>
-            <p className="text-slate-600 font-bold text-lg md:text-xl max-w-xl mb-10 leading-relaxed animate-fade-in-up delay-100">
+            <p className="text-slate-600 font-bold text-base sm:text-lg md:text-xl max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed animate-fade-in-up delay-100">
               Unleash your child's creativity! Join our fun, hands-on online camp to learn coding logic, build virtual robotics, and explore the wonders of AI.
             </p>
-            <div className="flex flex-wrap gap-4 animate-fade-in-up delay-200">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-fade-in-up delay-200">
               <a
                 href="#register"
-                className="font-outfit font-bold text-sm uppercase tracking-wider px-8 py-4 bg-[#3F634D] hover:bg-[#324f3d] text-[#F5F4EB] rounded-full shadow-sm hover:scale-105 active:scale-95 transition-all duration-200"
+                className="font-outfit font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3 sm:px-8 sm:py-4 bg-[#3F634D] hover:bg-[#324f3d] text-[#F5F4EB] rounded-full shadow-sm hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 Get Started
               </a>
               <a
                 href="#details"
-                className="font-outfit font-bold text-sm uppercase tracking-wider px-8 py-4 border-2 border-[#1C221E] hover:bg-[#1C221E] hover:text-[#F5F4EB] rounded-full transition-all duration-200"
+                className="font-outfit font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3 sm:px-8 sm:py-4 border-2 border-[#1C221E] hover:bg-[#1C221E] hover:text-[#F5F4EB] rounded-full transition-all duration-200"
               >
                 Learn More
               </a>
@@ -411,7 +411,7 @@ export default function App() {
       </header>
 
       {/* 3. WORKSHOP DETAILS SECTION */}
-      <section id="details" className="py-24 border-t border-[#E4E3DA] bg-white">
+      <section id="details" className="py-16 md:py-24 border-t border-[#E4E3DA] bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="font-outfit font-black text-3xl sm:text-4xl mb-3">
@@ -422,12 +422,12 @@ export default function App() {
             </p>
           </div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
+          {/* Cards Flex Layout for perfect centering and responsiveness */}
+          <div className="flex flex-wrap justify-center gap-6">
             {workshopDetails.map((detail, idx) => (
               <div
                 key={idx}
-                className={`${detail.bgColor} border ${detail.borderColor} p-6 rounded-[2rem] flex flex-col justify-between items-center text-center transition-transform duration-300 hover:-translate-y-2`}
+                className={`${detail.bgColor} border ${detail.borderColor} p-6 rounded-[2rem] flex flex-col justify-between items-center text-center transition-transform duration-300 hover:-translate-y-2 w-full sm:w-[calc(50%-12px)] lg:w-[calc(20%-20px)] max-w-sm`}
               >
                 <div className="flex flex-col items-center">
                   {/* Vector icon with crescent base */}
@@ -453,7 +453,7 @@ export default function App() {
       </section>
 
       {/* 4. FEATURES SECTION */}
-      <section id="features" className="py-24 border-t border-[#E4E3DA]">
+      <section id="features" className="py-16 md:py-24 border-t border-[#E4E3DA]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="font-outfit font-black text-3xl sm:text-4xl mb-3">
@@ -464,12 +464,12 @@ export default function App() {
             </p>
           </div>
 
-          {/* Outcomes Cards Grid - Asymmetric colors inspired by Kiddo's */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Outcomes Cards Flex Layout for perfect centering and responsiveness */}
+          <div className="flex flex-wrap justify-center gap-8">
             {learningOutcomes.map((item, index) => (
               <div
                 key={index}
-                className={`border border-[#E4E3DA] p-8 rounded-[2.5rem] flex flex-col justify-between items-start transition-all duration-300 hover:scale-[1.02] ${item.bgColor} ${item.textColor}`}
+                className={`border border-[#E4E3DA] p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] flex flex-col justify-between items-start transition-all duration-300 hover:scale-[1.02] ${item.bgColor} ${item.textColor} w-full md:w-[calc(50%-16px)] lg:w-[calc(33.33%-22px)] max-w-md`}
               >
                 <div className="w-full">
                   <div className="relative w-14 h-14 flex items-center justify-center mb-6">
@@ -544,21 +544,21 @@ export default function App() {
       </section>
 
       {/* 6. REGISTRATION FORM SECTION */}
-      <section id="register" className="py-24 border-t border-[#E4E3DA]">
+      <section id="register" className="py-16 md:py-24 border-t border-[#E4E3DA]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Info Column */}
-            <div className="lg:col-span-5 text-left">
-              <h2 className="font-outfit font-black text-3xl sm:text-4xl text-[#1C221E] mb-6 leading-tight">
+            <div className="lg:col-span-5 text-center lg:text-left">
+              <h2 className="font-outfit font-black text-2xl sm:text-4xl text-[#1C221E] mb-6 leading-tight">
                 Begin Their Learning Adventure Today
               </h2>
-              <p className="text-slate-600 font-bold text-lg mb-8 leading-relaxed">
+              <p className="text-slate-600 font-bold text-base sm:text-lg mb-8 leading-relaxed">
                 Secure a seat for your child today! Fill out the quick registration form, and our education advisors will reach out with onboarding materials, batch timings, and installation guides.
               </p>
               
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 bg-white border border-[#E4E3DA] rounded-2xl">
-                  <span className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center">
+              <div className="space-y-4 max-w-md mx-auto lg:mx-0">
+                <div className="flex items-center gap-4 p-4 bg-white border border-[#E4E3DA] rounded-2xl text-left">
+                  <span className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center shrink-0">
                     <LightningIcon />
                   </span>
                   <div>
@@ -566,8 +566,8 @@ export default function App() {
                     <p className="text-xs text-slate-500 font-bold">Takes less than 1 minute to submit.</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 p-4 bg-white border border-[#E4E3DA] rounded-2xl">
-                  <span className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center">
+                <div className="flex items-center gap-4 p-4 bg-white border border-[#E4E3DA] rounded-2xl text-left">
+                  <span className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center shrink-0">
                     <LockIcon />
                   </span>
                   <div>
@@ -580,7 +580,7 @@ export default function App() {
 
             {/* Form Column */}
             <div className="lg:col-span-7">
-              <div className="w-full max-w-lg mx-auto bg-white border border-[#E4E3DA] rounded-[2.5rem] p-8 md:p-10">
+              <div className="w-full max-w-lg mx-auto bg-white border border-[#E4E3DA] rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10">
                 {success ? (
                   <div className="text-center py-8">
                     <div className="w-20 h-20 bg-[#D4E0D1] text-[#3F634D] rounded-full flex items-center justify-center mx-auto mb-6">
