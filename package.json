@@ -1,0 +1,11 @@
+{
+  "name": "kidrove-root",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Root orchestrator for Kidrove full-stack project",
+  "scripts": {
+    "postinstall": "npm install --prefix backend",
+    "build": "npm run build --prefix backend",
+    "start": "npm start --prefix backend"
+  }
+}
