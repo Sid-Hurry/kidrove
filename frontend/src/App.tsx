@@ -107,6 +107,8 @@ interface DetailItem {
   value: string;
   label: string;
   crescentColor: string;
+  bgColor: string;
+  borderColor: string;
 }
 
 export default function App() {
@@ -123,11 +125,11 @@ export default function App() {
 
   // --- STATIC DATA ---
   const workshopDetails: DetailItem[] = [
-    { icon: <AgeIcon />, value: '8–14 Years', label: 'Age Group', crescentColor: 'bg-[#D4E0D1]' },
-    { icon: <CalendarIcon />, value: '4 Weeks', label: 'Duration', crescentColor: 'bg-[#C7D2FE]' },
-    { icon: <LaptopIcon />, value: 'Online', label: 'Mode', crescentColor: 'bg-[#FED7AA]' },
-    { icon: <RupeeIcon />, value: '₹2,999', label: 'Workshop Fee', crescentColor: 'bg-[#99F6E4]' },
-    { icon: <RocketIcon />, value: '15 July 2026', label: 'Start Date', crescentColor: 'bg-[#FEF08A]' },
+    { icon: <AgeIcon />, value: '8–14 Years', label: 'Age Group', crescentColor: 'bg-[#3F634D]/20', bgColor: 'bg-[#D4E0D1]/20', borderColor: 'border-[#3F634D]/10' },
+    { icon: <CalendarIcon />, value: '4 Weeks', label: 'Duration', crescentColor: 'bg-[#5F72BE]/20', bgColor: 'bg-[#C7D2FE]/20', borderColor: 'border-[#5F72BE]/10' },
+    { icon: <LaptopIcon />, value: 'Online', label: 'Mode', crescentColor: 'bg-[#DC7A31]/20', bgColor: 'bg-[#FED7AA]/20', borderColor: 'border-[#DC7A31]/10' },
+    { icon: <RupeeIcon />, value: '₹2,999', label: 'Workshop Fee', crescentColor: 'bg-[#14B8A6]/20', bgColor: 'bg-[#99F6E4]/20', borderColor: 'border-[#14B8A6]/10' },
+    { icon: <RocketIcon />, value: '15 July 2026', label: 'Start Date', crescentColor: 'bg-[#EAB308]/20', bgColor: 'bg-[#FEF08A]/20', borderColor: 'border-[#EAB308]/10' },
   ];
 
   const learningOutcomes: OutcomeItem[] = [
@@ -143,9 +145,9 @@ export default function App() {
       icon: <RobotIcon className="w-6 h-6 text-[#1C221E]" />,
       title: 'Build Virtual Robots',
       description: 'Design structures and program virtual robot systems to complete tasks.',
-      bgColor: 'bg-white',
+      bgColor: 'bg-[#D4E0D1]',
       textColor: 'text-[#1C221E]',
-      crescentColor: 'bg-[#F5F4EB]',
+      crescentColor: 'bg-[#A8BCA5]',
     },
     {
       icon: <SignalIcon className="w-6 h-6 text-[#F5F4EB]" />,
@@ -159,9 +161,9 @@ export default function App() {
       icon: <CodeIcon className="w-6 h-6 text-[#1C221E]" />,
       title: 'Learn Coding Logic',
       description: 'Master basic programming structures like loops, conditionals, variables, and functions.',
-      bgColor: 'bg-white',
+      bgColor: 'bg-[#E4E3DA]',
       textColor: 'text-[#1C221E]',
-      crescentColor: 'bg-[#F5F4EB]',
+      crescentColor: 'bg-[#C5C4B7]',
     },
     {
       icon: <PuzzleIcon className="w-6 h-6 text-[#F5F4EB]" />,
@@ -275,7 +277,7 @@ export default function App() {
           {/* Links */}
           <div className="hidden md:flex items-center gap-8 font-outfit font-bold text-sm tracking-wide uppercase">
             <a href="#details" className="hover:text-[#3F634D] transition-colors">Workshop</a>
-            <a href="#outcomes" className="hover:text-[#3F634D] transition-colors">Outcomes</a>
+            <a href="#features" className="hover:text-[#3F634D] transition-colors">Features</a>
             <a href="#faq" className="hover:text-[#3F634D] transition-colors">FAQ</a>
             <a href="#register" className="hover:text-[#3F634D] transition-colors">Contact</a>
           </div>
@@ -295,14 +297,14 @@ export default function App() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Text Side */}
           <div className="lg:col-span-6 text-left">
-            <h1 className="font-outfit font-black text-4xl sm:text-5xl lg:text-6xl text-[#1C221E] leading-[1.1] mb-6">
+            <h1 className="font-outfit font-black text-4xl sm:text-5xl lg:text-6xl text-[#1C221E] leading-[1.1] mb-6 animate-fade-in-up">
               AI & Robotics <br />
               <span className="text-[#3F634D]">Summer Workshop</span>
             </h1>
-            <p className="text-slate-600 font-bold text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
+            <p className="text-slate-600 font-bold text-lg md:text-xl max-w-xl mb-10 leading-relaxed animate-fade-in-up delay-100">
               Unleash your child's creativity! Join our fun, hands-on online camp to learn coding logic, build virtual robotics, and explore the wonders of AI.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 animate-fade-in-up delay-200">
               <a
                 href="#register"
                 className="font-outfit font-bold text-sm uppercase tracking-wider px-8 py-4 bg-[#3F634D] hover:bg-[#324f3d] text-[#F5F4EB] rounded-full shadow-sm hover:scale-105 active:scale-95 transition-all duration-200"
@@ -319,8 +321,8 @@ export default function App() {
           </div>
 
           {/* Illustration Side - Stylized Cream/Green SVG Robot Mascot */}
-          <div className="lg:col-span-6 flex justify-center mt-6 lg:mt-0">
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center bg-white border border-[#E4E3DA] rounded-[3rem] p-6 shadow-sm">
+          <div className="lg:col-span-6 flex justify-center mt-6 lg:mt-0 animate-fade-in-up delay-300">
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center animate-float">
               <svg viewBox="0 0 200 200" className="w-full h-full">
                 {/* Accent Shapes */}
                 <path d="M40,30 C60,10 140,10 160,30" fill="none" stroke="#D4E0D1" strokeWidth="6" strokeDasharray="5 5" />
@@ -335,21 +337,21 @@ export default function App() {
                 <rect x="65" y="45" width="70" height="65" rx="24" fill="#3F634D" />
                 {/* Face screen */}
                 <rect x="73" y="53" width="54" height="41" rx="14" fill="#F5F4EB" />
-                {/* Eyes */}
-                <circle cx="90" cy="71" r="5" fill="#1C221E" />
-                <circle cx="110" cy="71" r="5" fill="#1C221E" />
+                {/* Eyes - with Blinking Animation */}
+                <circle cx="90" cy="71" r="5" fill="#1C221E" className="animate-blink" />
+                <circle cx="110" cy="71" r="5" fill="#1C221E" className="animate-blink" />
                 {/* Cute smile */}
                 <path d="M94,80 Q100,86 106,80" stroke="#1C221E" strokeWidth="2.5" strokeLinecap="round" fill="none" />
                 
-                {/* Antenna */}
+                {/* Antenna - with pulsing light */}
                 <line x1="100" y1="45" x2="100" y2="28" stroke="#3F634D" strokeWidth="5" strokeLinecap="round" />
-                <circle cx="100" cy="24" r="8" fill="#DC7A31" />
+                <circle cx="100" cy="24" r="8" fill="#DC7A31" className="animate-pulse-slow" />
                 
                 {/* Torso */}
                 <rect x="68" y="115" width="64" height="52" rx="18" fill="#DC7A31" />
-                {/* Core energy circle */}
+                {/* Core energy circle - with pulsing center */}
                 <circle cx="100" cy="140" r="12" fill="#F5F4EB" />
-                <circle cx="100" cy="140" r="6" fill="#3F634D" />
+                <circle cx="100" cy="140" r="6" fill="#3F634D" className="animate-pulse-slow" />
 
                 {/* Left/Right arms */}
                 <rect x="44" y="118" width="14" height="36" rx="7" fill="#5F72BE" transform="rotate(20 44 118)" />
@@ -377,7 +379,7 @@ export default function App() {
             {workshopDetails.map((detail, idx) => (
               <div
                 key={idx}
-                className="bg-[#F5F4EB]/50 border border-[#E4E3DA] p-6 rounded-[2rem] flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-2"
+                className={`${detail.bgColor} border ${detail.borderColor} p-6 rounded-[2rem] flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-2`}
               >
                 {/* Vector icon with crescent base */}
                 <div className="relative w-16 h-16 flex items-center justify-center mb-4">
@@ -397,8 +399,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. LEARNING OUTCOMES SECTION */}
-      <section id="outcomes" className="py-24 border-t border-[#E4E3DA]">
+      {/* 4. FEATURES SECTION */}
+      <section id="features" className="py-24 border-t border-[#E4E3DA]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="font-outfit font-black text-3xl sm:text-4xl mb-3">

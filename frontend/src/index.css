@@ -16,7 +16,7 @@
   }
 }
 
-/* Custom scrollbar to keep it looking clean and rounded */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -33,4 +33,83 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #3F634D;
+}
+
+/* --- MICRO-ANIMATIONS SYSTEM --- */
+
+/* 1. Floating Mascot */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* 2. Eye Blinking */
+@keyframes blink {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+.animate-blink {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 4s linear infinite;
+}
+
+/* 3. Core/Antenna Pulse */
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* 4. Smooth Entrance Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
 }
