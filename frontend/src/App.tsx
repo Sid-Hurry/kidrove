@@ -176,48 +176,48 @@ export default function App() {
 
   const learningOutcomes: OutcomeItem[] = [
     {
-      icon: <BrainIcon className="w-6 h-6 text-[#F5F4EB]" />,
+      icon: <BrainIcon className="w-6 h-6 text-[#3F634D]" />,
       title: 'Learn AI Basics',
       description: 'Discover how computers think, recognize images, and process human languages in a fun way.',
-      bgColor: 'bg-[#3F634D]',
-      textColor: 'text-[#F5F4EB]',
-      crescentColor: 'bg-[#537D63]',
+      bgColor: 'bg-[#D4E0D1]/20',
+      textColor: 'text-[#1C221E]',
+      crescentColor: 'bg-[#3F634D]/20',
       tags: ['Image Recognition', 'Neural Nets', 'Decision Trees']
     },
     {
-      icon: <RobotIcon className="w-6 h-6 text-[#1C221E]" />,
+      icon: <RobotIcon className="w-6 h-6 text-[#5F72BE]" />,
       title: 'Build Virtual Robots',
       description: 'Design structures and program virtual robot systems to complete tasks.',
-      bgColor: 'bg-[#D4E0D1]',
+      bgColor: 'bg-[#C7D2FE]/20',
       textColor: 'text-[#1C221E]',
-      crescentColor: 'bg-[#A8BCA5]',
+      crescentColor: 'bg-[#5F72BE]/20',
       tags: ['3D Mechanics', 'Simulator Sandbox', 'Block Coding']
     },
     {
-      icon: <SignalIcon className="w-6 h-6 text-[#F5F4EB]" />,
+      icon: <SignalIcon className="w-6 h-6 text-[#DC7A31]" />,
       title: 'Understand Sensors',
       description: 'Explore how infrared, ultrasonic, and color sensors let robots interact with their environment.',
-      bgColor: 'bg-[#5F72BE]',
-      textColor: 'text-[#F5F4EB]',
-      crescentColor: 'bg-[#7689D4]',
+      bgColor: 'bg-[#FED7AA]/20',
+      textColor: 'text-[#1C221E]',
+      crescentColor: 'bg-[#DC7A31]/20',
       tags: ['Ultrasonic radar', 'Line-tracking', 'Obstacle bypass']
     },
     {
-      icon: <CodeIcon className="w-6 h-6 text-[#1C221E]" />,
+      icon: <CodeIcon className="w-6 h-6 text-teal-600" />,
       title: 'Learn Coding Logic',
       description: 'Master basic programming structures like loops, conditionals, variables, and functions.',
-      bgColor: 'bg-[#E4E3DA]',
+      bgColor: 'bg-[#99F6E4]/20',
       textColor: 'text-[#1C221E]',
-      crescentColor: 'bg-[#C5C4B7]',
+      crescentColor: 'bg-teal-600/20',
       tags: ['Loops & Lists', 'If/Else conditions', 'Function logic']
     },
     {
-      icon: <PuzzleIcon className="w-6 h-6 text-[#F5F4EB]" />,
+      icon: <PuzzleIcon className="w-6 h-6 text-yellow-600" />,
       title: 'Improve Problem Solving',
       description: 'Build strong critical thinking skills by debugging code and solving mechanical puzzles.',
-      bgColor: 'bg-[#DC7A31]',
-      textColor: 'text-[#F5F4EB]',
-      crescentColor: 'bg-[#E39556]',
+      bgColor: 'bg-[#FEF08A]/20',
+      textColor: 'text-[#1C221E]',
+      crescentColor: 'bg-[#EAB308]/20',
       tags: ['Code debugging', 'Logic puzzles', 'Final capstone project']
     },
   ];
@@ -489,11 +489,7 @@ export default function App() {
                   {item.tags.map((tag, tIdx) => (
                     <span 
                       key={tIdx} 
-                      className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${
-                        item.bgColor.includes('white') || item.bgColor.includes('E4E3DA') || item.bgColor.includes('D4E0D1')
-                          ? 'bg-[#1C221E]/10 text-[#1C221E]' 
-                          : 'bg-[#F5F4EB]/25 text-[#F5F4EB]'
-                      }`}
+                      className="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-[#1C221E]/10 text-[#1C221E]"
                     >
                       {tag}
                     </span>
@@ -688,7 +684,7 @@ export default function App() {
       </section>
 
       {/* 7. FOOTER */}
-      <footer className="py-12 border-t border-[#E4E3DA] bg-white text-center">
+      <footer className="py-6 border-t border-[#E4E3DA] bg-white text-center">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <div className="flex gap-1">
